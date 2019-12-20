@@ -16,55 +16,28 @@ void remove(Node* &head, Node* node, int id);
 
 int main() {
   Node* head = NULL;
-  char keyword[10];
-    while (true){
-    cout << "Type in a keyword (\"ADD\", \"PRINT\",\"DELETE\", or \"QUIT\")"<<endl;
-    cin.get(keyword, 10); //put into array of 10. Extra char will be ignored
-    cin.clear(); //clear, ignore fixes null bug
-    cin.ignore(9999, '\n');
-    if (strcmp(keyword, "ADD") == 0){//if keyword char pointer matches with str
-      char* fname = new char(40);
-      char* lname = new char(40);
-      int id = 0;
-      float gpa = 0;
-      cout << "Enter First Name:" << endl;
-      cin.getline(fname, 40, '\n');
-      cout << "Enter Last Name:" << endl;
-      cin.getline(lname, 40, '\n');
-      cout << "Enter Student ID:"<< endl;
-      cin >> id;
-      cin.ignore();
-      cout << "Enter GPA:"<< endl;
-      cin >> gpa;
-      cin.ignore();
-      Student* current = new Student(fname, lname, id, gpa);
-      add(head, head, current);
-      cout << "Student Added." << endl;
-      cout << endl;
-    }
-    else if (strcmp(keyword, "PRINT") == 0){
-      cout << "Student List:" << endl;
-      print(head);
-      cout << endl;
-    }
-    else if (strcmp(keyword, "DELETE") == 0){
-      int id = 0;
-      cout << "Enter Student ID:" << endl;
-      cin >> id;
-      remove(head, head, id);
-      cin.clear();
-      cin.ignore(999, '\n');
-      cout << endl;
-    }
-    else if(strcmp(keyword, "QUIT") == 0){
-      cout << "Have a nice day!" << endl;
-      return 0; //close program
-
-    }
-    else{
-      cout << "Make sure the keyword is capitalized." << endl;
-    }
-  }
+  cout << "Beginning Additions" << endl;
+  Student* Kevin = new Student("Kevin", "Park", 405249, 1.23);
+  add(head, head, Kevin);
+  print(head);
+  cout << endl;
+  Student* Emma = new Student("Emma", "Shu", 123456, 4.99);
+  add(head, head, Emma);
+  print(head);
+  cout << endl;
+  Student* Rita = new Student("Rita", "Thammakhoune", 334455, 5.00);
+  add(head, head, Rita);
+  print(head);
+  cout << endl;
+  cout << "Beginning Deletions"<< endl;
+  remove(head, head, 405249);
+  cout << endl;
+  print(head);
+  remove(head, head, 123456);
+  cout << endl;
+  print(head);
+  cout << endl;
+  remove(head, head, 334455);
   return 0;
 }
 

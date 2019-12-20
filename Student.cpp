@@ -12,8 +12,8 @@ Student :: Student(char* newfname, char* newlname, int newid, float newgpa){
 }
 
 Student :: ~Student(){
-  delete fname;
-  delete lname;
+  //delete fname;
+  //delete lname;
 }
 
 char* Student :: getFname(){
