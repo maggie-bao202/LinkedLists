@@ -34,14 +34,16 @@ int main() {
 
   //remove student
   cout << "Beginning Deletions..."<< endl;
+  print(head);//prints full list
+  cout << endl;
   remove(head, head, 405249);//pass id through remove function to delete the student
-  cout << endl;
   print(head);
-  remove(head, head, 123456);
   cout << endl;
+  remove(head, head, 123456);
   print(head);
   cout << endl;
   remove(head, head, 334455);
+  print(head);
   return 0; //program ends
 }
 
@@ -60,7 +62,7 @@ void add(Node* &head, Node* node, Student* student){
 }
 
 void print(Node* node){
-  if (node == NULL){
+  if (node == NULL){//if nothing, then return
     return;
   }
   node->getStudent()->print();//print out the node from the student function
@@ -68,16 +70,16 @@ void print(Node* node){
 }
 
 void remove(Node* &head, Node* node, int id){
-  if (node->getStudent()->getId() == id){
+  if (node->getStudent()->getId() == id){//if node id matches id
     if (node == head) {
-      Node* temp = head; 
+      Node* temp = head;
       head = head->getNext();
       delete temp; //clear memory
       cout << "Student Removed." << endl;
       return;
     }
   }
- if (node->getNext()->getStudent()->getId() == id) {
+  if (node->getNext()->getStudent()->getId() == id) {//if next node student matches id
     node->setNext(node->getNext()->getNext());
     delete node->getNext(); //clear memory
     cout << "Student Removed." << endl;

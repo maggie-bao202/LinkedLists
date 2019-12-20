@@ -4,18 +4,19 @@
 
 using namespace std;
 
-Student :: Student(char* newfname, char* newlname, int newid, float newgpa){
+Student :: Student(char* newfname, char* newlname, int newid, float newgpa){//constructor
   fname = newfname;
   lname = newlname;
   id = newid;
   gpa = newgpa;
 }
 
-Student :: ~Student(){
+Student :: ~Student(){//have to do with string initialization, removing char array lines fixes "abort" error
   //delete fname;
   //delete lname;
 }
 
+//getters
 char* Student :: getFname(){
   return fname;
 }
@@ -32,6 +33,6 @@ float Student :: getGPA(){
   return gpa;
 }
 
-void Student :: print(){
+void Student :: print(){//prints student information
   cout << fname << " " << lname << "," << id << "," << gpa << endl;
 }
